@@ -1,2 +1,2 @@
-# orient-site
+./views
 underdevelopment site orient 
