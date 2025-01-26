@@ -327,3 +327,8 @@ async function loadGoogleAnalytics() {
         console.error("Tracking ID is undefined");
     }
 }
+
+window.addEventListener('load', function () {
+    const loader = document.getElementById('loader');
+    loader.style.display = 'none';
+});

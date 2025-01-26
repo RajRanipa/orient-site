@@ -1496,10 +1496,10 @@ h1.address-title {
 /* banner-dialog */
 
 .banner-dialog {
-    z-index: 99;
+    -index: 99;
     position: fixed;
-    top: 80%;
-    left: 80%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 5px;
@@ -1509,6 +1509,7 @@ h1.address-title {
     max-width: 85vw;
     text-align: center;
     font-family: revert;
+    overflow: hidden;
 }
 .banner-dialog::before{
     content: '';
@@ -1520,9 +1521,10 @@ h1.address-title {
     z-index: -1;
     background:url("/img/Orint Logo 1.svg");
     background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: 170% 0%;
+    background-size: 100% 100%;
     opacity: 0.24;
+    transform: translate(30%, 10%);
+    overflow: hidden;
 }
 
 .banner-dialog::backdrop {
@@ -1589,3 +1591,34 @@ h1.address-title {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Loader styles */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+  }
+
+  #loader .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
