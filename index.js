@@ -22,11 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'views'))); // this is not working 
+app.use(express.static(path.join(__dirname, 'docs'))); // this is not working 
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-module.exports.filepath = path.join(__dirname, 'views');
+module.exports.filepath = path.join(__dirname, 'docs');
 
 app.use(myroutes);
 

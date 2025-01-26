@@ -1,2 +1,2 @@
-./views
+./docs
 underdevelopment site orient 
