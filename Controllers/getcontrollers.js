@@ -1,5 +1,5 @@
 // this is getcontrolls.js file
-const obj = require('../server.js');
+const obj = require('../index.js');
 const nodemailer = require('nodemailer');
 require("dotenv").config();
 
