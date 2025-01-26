@@ -1,2 +1,0 @@
-./docs
-underdevelopment site orient 
