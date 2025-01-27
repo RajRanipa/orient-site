@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if cookies have already been accepted
     if (!localStorage.getItem("cookiesAccepted")) {
         cookieBanner.showModal(); // Opens the dialog as a modal
-    }else{
+    } else {
         loadGoogleAnalytics();
     }
 
@@ -303,7 +303,7 @@ async function loadGoogleAnalytics() {
     }
     const data = await response.json();
     const trackingID = atob(data.trackingID);
-    
+
 
     if (trackingID) {
         console.log("Tracking ID:", trackingID);
@@ -313,7 +313,7 @@ async function loadGoogleAnalytics() {
             script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingID}`; // by doing all this still i can't hide my trackingID from user because when they inspect thy can see at head tag 
             script.async = true;
             document.head.appendChild(script);
-        
+
             script.onload = function () {
                 window.dataLayer = window.dataLayer || [];
                 function gtag() {
@@ -331,4 +331,29 @@ async function loadGoogleAnalytics() {
 window.addEventListener('load', function () {
     const loader = document.getElementById('loader');
     loader.style.display = 'none';
+});
+
+// Function to observe elements
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // Add the visible class when in view
+        }
+    });
+});
+
+// Select elements to animate
+const elements = document.querySelectorAll('.animate');
+elements.forEach((el) => observer.observe(el));
+
+const perspectives = document.querySelectorAll('.perspective');
+
+perspectives.forEach(perspective => {
+    perspective.addEventListener('mouseenter', () => {
+        perspective.style.setProperty('--cursor-opacity', 0);
+    });
+
+    perspective.addEventListener('touchstart', () => {
+        perspective.style.setProperty('--cursor-opacity', 0);
+    }, { passive: true });
 });
