@@ -28,18 +28,23 @@ module.exports.Career = (rec, res) => {
 module.exports.Contact_us = (rec, res) => {
     res.sendFile(obj.filepath + '/Contact_us.html');
 }
-module.exports.Ga_id = (rec, res) => {
+module.exports.Ga_id = (req, res) => {
     try {
+        console.log("Environment Variable gaid:", process.env.gaid);
         const trackingID = process.env.gaid;
-        console.log("rec :- ",rec)
-        console.log("res :- ",res)
-        console.log("trackingID :- ",trackingID)
+        if (!trackingID) {
+            return res.status(500).json({ message: "Tracking ID not found" });
+        }
+
+        console.log("Tracking ID:", trackingID);
         const encodedID = Buffer.from(trackingID).toString("base64");
+
         res.json({ trackingID: encodedID });
     } catch (error) {
-        return obj.handleError(res, error);
+        console.error("Error in Ga_id handler:", error);
+        return res.status(500).json({ message: "Server error" });
     }
-}
+};
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
