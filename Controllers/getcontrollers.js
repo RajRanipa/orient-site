@@ -31,6 +31,9 @@ module.exports.Contact_us = (rec, res) => {
 module.exports.Ga_id = (rec, res) => {
     try {
         const trackingID = process.env.gaid;
+        console.log("rec :- ",rec)
+        console.log("res :- ",res)
+        console.log("trackingID :- ",trackingID)
         const encodedID = Buffer.from(trackingID).toString("base64");
         res.json({ trackingID: encodedID });
     } catch (error) {
