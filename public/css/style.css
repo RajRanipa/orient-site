@@ -259,10 +259,10 @@ nav ul.show li {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    background: url(/img/bgre15.jpg);
+    /* background: url(/img/bgre15.jpg); */
     background-size: cover;
     background-position: center;
-    mask: radial-gradient(ellipse 190% 180% at 0% 100%, rgba(255, 255, 255, 0.5) 40%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 56%);
+    /* mask: radial-gradient(ellipse 190% 180% at 0% 100%, rgba(255, 255, 255, 0.5) 40%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 56%); */
     z-index: 5;
 }
 
@@ -686,28 +686,23 @@ button.left .svg-line {
     max-width: 90%;
     width: fit-content;
     height: fit-content;
-    top: 50%;
-    left: 50%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: 50px;
     pointer-events: none;
     transition: all 2s, backdrop-filter 0.3s;
-    font-family: "Roboto Condensed", serif;
     line-height: normal;
     font-size: 1.5rem;
-    white-space: wrap;
-    transform: translateZ(50px) translate(-50%, -50%);
+    transform: translateZ(50px);
     padding: 25px;
+    text-align: center;
+    background: radial-gradient(at center, rgba(255, 255, 255, 0), transparent 70%, transparent 90%);
 }
 
 .tile:hover .title {
     transition: all linear 0.5s;
-    transform: translateZ(100px) translate(-50%, -50%);
+    transform: translateZ(100px) ;
     background: radial-gradient(at center, white, transparent 70%, transparent 90%);
-    backdrop-filter: blur(0.8px);
 }
 
 .title h3 {
@@ -1659,4 +1654,28 @@ h1.address-title {
     100%{
         transform: translate(calc(-100% - 20px), calc(-100% - 20px));
     }
+}
+
+
+/* /////////////////////////////////////////////////////////// */
+
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 8;
+    object-fit:cover;
+    mask: radial-gradient(ellipse 190% 180% at 0% 100%, rgba(255, 255, 255, 0.5) 40%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 56%);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding-top: 20%;
 }
