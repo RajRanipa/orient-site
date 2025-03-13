@@ -12,11 +12,16 @@ if (scrollDownBtn) {
         });
     });
 }
+let logo_height;
+let logo_height_Value;
 
 document.addEventListener('DOMContentLoaded', (event) => {
     // console.log("DOMContentLoaded - > ",event)
     setSectionPaddings(event);
     scrollToProduct();
+    logo_height = getComputedStyle(document.documentElement).getPropertyValue('--logo-wrraper-height');
+    logo_height = parseFloat(logo_height); // Removes "px" and converts to number
+    logo_height_Value = parseFloat(logo_height) * 2; // Removes "px" and converts to number
 });
 window.addEventListener('resize', (event) => {
     // console.log("window resize - > ",event)
@@ -53,12 +58,14 @@ function setProductPaddings() {
             document.documentElement.style.setProperty('--h-color', "white");
         }
     } else {
-        console.log(" product_header_wrapper is undefine ")
+        // console.log(" product_header_wrapper is undefine ")
     }
 }
 
 const product = document.getElementById("products");
 const product_headline = document.getElementById("product_headline");
+const logo_wrraper= document.querySelector('.logo-wrraper');
+console.log(logo_wrraper.getBoundingClientRect().height)
 
 let lastScrollY = window.scrollY;
 document.addEventListener('scroll', (event) => {
@@ -75,9 +82,17 @@ document.addEventListener('scroll', (event) => {
     // giving header blur effect 
     var scrolledY = window.scrollY * 0.125;
     const stopping_point = 100;
+    const min_height = logo_height;
     var header_blur = scrolledY > stopping_point ? stopping_point + "px" : scrolledY + "px";
+    var x = 2;
+    var new_logo_height = logo_height_Value - (scrolledY * x)  >= min_height ? logo_height_Value - (scrolledY * x)  + "px" : min_height  + "px"
 
+    console.log("new_logo_height :- ",new_logo_height)
+    console.log("scrolledY :- ",scrolledY)
+    console.log("header_blur :- ",header_blur)
     document.documentElement.style.setProperty('--header-blur', header_blur);
+    document.querySelector('.logo-wrraper').style.setProperty('--logo-height', new_logo_height);
+    // document.documentElement.style.getProperty('--logo-height');
 
     // slideing animation 
     if (product) {
@@ -241,7 +256,6 @@ function scrollToProduct() {
     // const product_brief = document.querySelector(".icon-div.active") // this is for bringing product icon at center
     const product_brief = document.querySelector("#product_brief")
     const product_name_header = document.querySelector(".product-name-header")
-    console.log("product_brief :- ", product_brief)
     if (product_brief) {
         const product_brief_rect = product_brief.getBoundingClientRect();
         const product_name_header_rect = product_name_header.getBoundingClientRect();
@@ -356,4 +370,11 @@ perspectives.forEach(perspective => {
     perspective.addEventListener('touchstart', () => {
         perspective.style.setProperty('--cursor-opacity', 0);
     }, { passive: true });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.querySelector("video");
+    if (video) {
+        // video.playbackRate = 0.5; // Adjust this value (1 is normal speed, 0.5 is half speed)
+    }
 });
