@@ -335,7 +335,7 @@
 
     .tile:hover .title {
         transition: all linear 1s;
-        transform: translateZ(80px) translate(-50%, -50%);
+        /* transform: translateZ(80px) translate(-50%, -50%); */
         backdrop-filter: none;
         box-shadow: none;
     }
