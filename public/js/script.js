@@ -24,9 +24,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     logo_height_Value = parseFloat(logo_height) * 2; // Removes "px" and converts to number
 });
 window.addEventListener('resize', (event) => {
-    // console.log("window resize - > ",event)
+    // console.log("window resize - > ", event);
     setSectionPaddings(event);
-})
+
+    const imgtagIcon = document.getElementById('imgtag_icon');
+    const ul = document.querySelector("nav ul");
+
+    if (imgtagIcon) { // Ensure imgtagIcon exists
+        const computedStyle = window.getComputedStyle(imgtagIcon);
+        if (computedStyle.display === "none") {
+            imgtagIcon.classList.add("right");
+            imgtagIcon.classList.remove("left");
+            ul?.classList.remove("show"); // Optional chaining to prevent errors if ul is null
+        }
+    }
+});
+
 document.addEventListener('loadstart', (event) => {
     // console.log("loadstart - > ",event)
     setSectionPaddings(event);
@@ -127,6 +140,7 @@ document.addEventListener('click', (event) => {
         ul.classList.remove("show");
     }
 });
+
 
 // Common variables
 const tiles = document.querySelectorAll('.tile');

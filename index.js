@@ -2,9 +2,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const path = require('path');
-// const bcrypt = require("bcrypt");
-// const { getQueryPromise } = require('./config/db')
-// const { port, domain } = require('./config/config')
 const myroutes = require('./Routes/authroutes.js')
 const fs = require('fs');
 
@@ -17,6 +14,12 @@ const app = express();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ADDING APPLICATION REQUIRMENT / DEPENDNCY 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ✅ Serve static files with caching and set headers for PNGs
+app.use(express.static("public", {
+  maxAge: "1y",
+  immutable: true
+}));
 
 app.use(express.urlencoded({ extended: true }));
 

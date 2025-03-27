@@ -25,6 +25,9 @@ module.exports.Paper_page = (rec, res) => {
 module.exports.Career = (rec, res) => {
     res.sendFile(obj.filepath + '/Career.html');
 }
+module.exports.Certificates = (rec, res) => {
+    res.sendFile(obj.filepath + '/Certificates.html');
+}
 module.exports.Contact_us = (rec, res) => {
     res.sendFile(obj.filepath + '/Contact_us.html');
 }

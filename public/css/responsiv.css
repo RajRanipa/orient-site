@@ -159,6 +159,11 @@
     .info-title-wrapper{
         text-align: center;
     }
+
+    .certificate-img.animate.visible{
+        transition: all 0.7s ease-in;
+        transform: none;
+    }
 }
 
 /* Responsive styles for small show devices */
@@ -286,6 +291,11 @@
     .info-title-wrapper{
         text-align: center;
     }
+
+    .certificate-img.animate.visible{
+        transition: all 0.7s ease-in;
+        transform: none;
+    }
 }
 
 @media (max-width: 390px) {
@@ -327,11 +337,6 @@
 
 /* Responsive styles for small show devices */
 @media (max-width: 575px) {
-
-    section.about-us-section .description-wrapper:nth-child(3) {
-        flex-direction: column-reverse;
-        /* not use full right now*/
-    }
 
     .tile:hover .title {
         transition: all linear 1s;
@@ -410,8 +415,11 @@
     .list-div:hover + .content-wrapper, .list-div.open + .content-wrapper{
         transition: all var(--th-transition);
     }
+}
+
+@media (pointer: coarse){    
+    .certificate-img.animate.visible{
+        transition: all 0.7s ease-in;
+        transform: none;
+    }
   }
-
-
-
-

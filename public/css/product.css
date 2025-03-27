@@ -148,10 +148,6 @@ button.icon-div.active svg path,button.icon-div.active p{
     align-items: center;
     justify-content: center;
 }
-.active-icon-wrapper svg path{
-    stroke: var(--cl-dark);
-    stroke-width: 1.2px;
-}
 .active-product-icon-div{
     padding: 0.5rem;
     display: flex;
@@ -204,8 +200,7 @@ button.icon-div.active svg path,button.icon-div.active p{
     display: flex;
 }
 
-.pro-specification-div, 
-.pro-application-div{
+.pro-specification-div{
     flex: 0 1 50%;
     overflow: auto;
 }
