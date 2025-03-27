@@ -587,15 +587,6 @@ html {
     text-align: right;
 }
 
-/* .description-wrapper:nth-child(2)::before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url(/img/shield_arrow.JPG.JPG);
-    mix-blend-mode: exclusion;
-} */
-
 .perspective {
     width: max(20vw, 300px);
     /* Minimum width of 280px or 20% of the viewport width */
@@ -789,8 +780,16 @@ html {
 }
 
 .product-image img {
+    opacity: 0;
     max-width: 100%;
     object-fit: cover;
+    transition: opacity 200ms ease-in-out;
+}
+.product-image.loaded img {
+    opacity: 1;
+}
+.product-image.loaded{
+    background: none !important;
 }
 
 .product-details {
@@ -810,6 +809,31 @@ html {
 .module-div div.product-details {
     text-align: right;
     align-items: end;
+}
+.blanket-div .product-image{
+    background: url(/img/blanket_crop_small.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.board-div .product-image{
+    background: url(/img/board_crop_small.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.bulk-div .product-image{
+    background: url(/img/bulk_crop_small.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.module-div .product-image{
+    background: url(/img/module_crop_small.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.paper-div .product-image{
+    background: url(/img/paper_crop_small.png) no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .product-details h1 {
