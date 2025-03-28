@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/responsiv.css">
     <!-- <link rel="stylesheet" href="/css/global.css"> -->
-    
+
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -82,7 +82,7 @@
           ]
         }
         </script>
-<title>Orient Site</title>
+    <title>Orient Site</title>
 </head>
 
 <body>
@@ -246,7 +246,8 @@
                                         <h3 class="childe-title">ISO-certified, internationally recognized standards.
                                         </h3>
                                     </div>
-                                    <a id="a-certificates" href="/Certificates" target="_blank" rel="noopener noreferrer">see our certificates</a>
+                                    <a id="a-certificates" href="/Certificates" target="_blank"
+                                        rel="noopener noreferrer">see our certificates</a>
                                 </div>
                             </div>
                         </div>
@@ -263,7 +264,8 @@
                 <div class="product-description">
                     <div class="description-wrapper blanket-div">
                         <div class="product-image animate">
-                            <img class="blanket-img" loading="lazy" src="/img/blanket_crop.png" alt="High-Temperature Ceramic Fiber Blanket">
+                            <img class="blanket-img" loading="lazy" src="/img/blanket_crop.png"
+                                alt="High-Temperature Ceramic Fiber Blanket">
                         </div>
                         <div class="product-details animate slide-in-left">
                             <h1>Ceramic Fiber <br> Blanket</h1>
@@ -334,7 +336,8 @@
                             </a>
                         </div>
                         <div class="product-image animate slide-in-left">
-                            <img class="module-img" loading="lazy" src="/img/module_crop.png" alt="Ceramic Fiber Module">
+                            <img class="module-img" loading="lazy" src="/img/module_crop.png"
+                                alt="Ceramic Fiber Module">
                         </div>
                     </div>
                     <div class="description-wrapper paper-div">
@@ -550,16 +553,17 @@
     </div>
     <script>
         const product_image = document.querySelectorAll('.product-image')
-        product_image.forEach( divImg => {
+        product_image.forEach(divImg => {
             const img = divImg.querySelector('img');
 
-            function loaded () {
+            function loaded() {
                 divImg.classList.add("loaded")
             }
 
-            if(img.complete){
+            if (img.complete) {
                 loaded();
-            }else{
+            } else {
+                // trackImageLoading(img);
                 img.addEventListener('load', loaded);
             }
         })

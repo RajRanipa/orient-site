@@ -100,9 +100,9 @@ document.addEventListener('scroll', (event) => {
     var x = 2;
     var new_logo_height = logo_height_Value - (scrolledY * x)  >= min_height ? logo_height_Value - (scrolledY * x)  + "px" : min_height  + "px"
 
-    console.log("new_logo_height :- ",new_logo_height)
-    console.log("scrolledY :- ",scrolledY)
-    console.log("header_blur :- ",header_blur)
+    // console.log("new_logo_height :- ",new_logo_height)
+    // console.log("scrolledY :- ",scrolledY)
+    // console.log("header_blur :- ",header_blur)
     document.documentElement.style.setProperty('--header-blur', header_blur);
     document.querySelector('.logo-wrraper').style.setProperty('--logo-height', new_logo_height);
     // document.documentElement.style.getProperty('--logo-height');

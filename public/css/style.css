@@ -770,6 +770,7 @@ html {
 }
 
 .product-image {
+    /* --progress:0px; */
     flex: 0 1 40%;
     overflow: hidden;
     height: fit-content;
@@ -777,16 +778,19 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    filter: blur(var(--progress));
 }
 
 .product-image img {
-    opacity: 0;
+    /* --progress : 100px; */
+    opacity: 0; 
     max-width: 100%;
     object-fit: cover;
     transition: opacity 200ms ease-in-out;
 }
 .product-image.loaded img {
     opacity: 1;
+    transition: opacity 200ms ease-in-out;
 }
 .product-image.loaded{
     background: none !important;
