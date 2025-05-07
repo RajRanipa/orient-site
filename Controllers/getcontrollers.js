@@ -163,6 +163,3 @@ module.exports.send_contact_email = async (req, res) => {
         return obj.handleError(res, error);
     }
 };
-
-
-

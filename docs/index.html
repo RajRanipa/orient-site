@@ -551,23 +551,6 @@
             <div class="spinner"></div>
         </div>
     </div>
-    <script>
-        const product_image = document.querySelectorAll('.product-image')
-        product_image.forEach(divImg => {
-            const img = divImg.querySelector('img');
-
-            function loaded() {
-                divImg.classList.add("loaded")
-            }
-
-            if (img.complete) {
-                loaded();
-            } else {
-                // trackImageLoading(img);
-                img.addEventListener('load', loaded);
-            }
-        })
-    </script>
     <script src="/js/script.js"></script>
 </body>
 

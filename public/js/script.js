@@ -77,7 +77,7 @@ function setProductPaddings() {
 
 const product = document.getElementById("products");
 const product_headline = document.getElementById("product_headline");
-const logo_wrraper= document.querySelector('.logo-wrraper');
+const logo_wrraper = document.querySelector('.logo-wrraper');
 console.log(logo_wrraper.getBoundingClientRect().height)
 
 let lastScrollY = window.scrollY;
@@ -98,7 +98,7 @@ document.addEventListener('scroll', (event) => {
     const min_height = logo_height;
     var header_blur = scrolledY > stopping_point ? stopping_point + "px" : scrolledY + "px";
     var x = 2;
-    var new_logo_height = logo_height_Value - (scrolledY * x)  >= min_height ? logo_height_Value - (scrolledY * x)  + "px" : min_height  + "px"
+    var new_logo_height = logo_height_Value - (scrolledY * x) >= min_height ? logo_height_Value - (scrolledY * x) + "px" : min_height + "px"
 
     // console.log("new_logo_height :- ",new_logo_height)
     // console.log("scrolledY :- ",scrolledY)
@@ -392,3 +392,22 @@ document.addEventListener("DOMContentLoaded", function () {
         // video.playbackRate = 0.5; // Adjust this value (1 is normal speed, 0.5 is half speed)
     }
 });
+
+const product_image = document.querySelectorAll('.product-image')
+if (product_image) {
+
+    product_image.forEach(divImg => {
+        const img = divImg.querySelector('img');
+
+        function loaded() {
+            divImg.classList.add("loaded")
+        }
+
+        if (img.complete) {
+            loaded();
+        } else {
+            // trackImageLoading(img);
+            img.addEventListener('load', loaded);
+        }
+    })
+}

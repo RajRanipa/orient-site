@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 const myroutes = require('./Routes/authroutes.js')
 const fs = require('fs');
+const rateLimit = require('express-rate-limit');
+const morgan = require('morgan');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // CREATING APPLICATION
@@ -21,6 +23,14 @@ app.use(express.static("public", {
   immutable: true
 }));
 
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
+
+app.use(morgan('combined'));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
@@ -36,27 +46,6 @@ app.use(myroutes);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // MIDDLEWARE AND IMPORTANT FUNCTION FOR API'S
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//MIDDLEWARE FOR TOKEN AUTHENTICATION 
-module.exports.authenticateToken = (req, res, next) => {
-  const token = req.headers.Authorization
-  if (token !== "abc123") {
-    res.redirect("/login")
-    return;
-  }
-  next();
-}
-
-// FUNCTION FOR GENERATE TOKEN
-module.exports.generateToken = (name) => {
-  const payload = {
-    username: name
-  };
-  const secretKey = 'q2w5e';
-
-  const token = jwt.sign(payload, secretKey);
-  return token;
-}
 
 // ERROR HANDLING FUNCTION
 module.exports.handleError = (res, error) => {
